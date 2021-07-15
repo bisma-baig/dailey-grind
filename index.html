@@ -1,1 +1,229 @@
-<h1> daily grind </h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>LARGEBUCK$ Coffee</title>
+    <meta name="robots" content="noindex,nofollow" />
+	<!-- below is a google font, go to https://www.google.com/fonts to get yours! -->
+	<link href='https://fonts.googleapis.com/css?family=Holtwood+One+SC' rel='stylesheet' type='text/css'>
+	<link id="mainStylesheet" rel="stylesheet" href="css/default.css" />
+    <style type="text/css">
+	
+        html {background-color:#FF7518;/* pumpkin - overwrites default */}
+        
+        .feature {color:#FF7518; /* daily feature color - pumpkin! */}
+        
+		.masthead{
+			font-family: 'Holtwood One SC', serif; /* required for google font */
+			font-size:3em;
+		}
+	
+		#logo{
+			float:right;
+			display:inline-block;
+			padding:2px;
+			max-width:100px; /* actual size of image */
+			width:20%; /* approximate size taken on screen in maximum view */
+		}
+	
+		#coffee {
+			float:left;
+			display:inline-block;
+			padding:20px;
+			max-width:300px; /* best if actual size of image */
+			width:33%; /* approximate size taken on screen in maximum view */
+		}
+
+        h3.slogan{
+           font-style:italic; /* make the slogan italics */ 
+        }
+    </style>
+   
+    <!--[if ltIE9]>
+       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+</head>
+<body>
+	<header>
+	    <img src="images/largebucks-logo.jpg" alt="You drink our coffee, we make large bucks!" class="flexible" id="logo" />
+		<h1 class="masthead">LARGEBUCK$ COFFEE</h1>
+		<nav>
+			<ul>
+				<li><a href="https://thedarkestroast.com/coffee-puns/">119 Coffee Puns</a></li>
+                <li><a href="https://localcoffeespot.com/">Local Coffee Spots in Seattle</a></li>
+                <li><a href="https://www.coffeescience.org/latte-art-beginners-guide/">Beginners guide to coffee art</a></li>
+                <li><a href="https://www.google.com/search?q=coffee+art&rlz=1C1RXMK_enUS948US949&sxsrf=ALeKk03mzG_GUm-sbz1L2MMDl7bwcvhE7Q:1626390698753&source=lnms&tbm=shop&sa=X&ved=2ahUKEwi3vPW-mebxAhUK654KHSjTC94Q_AUoAnoECAEQBA&biw=1536&bih=754">Coffee art to decorate with</a></li>
+                <li><a href="https://www.youtube.com/watch?v=YVOrDgtDYQ4&ab_channel=HowToBasic">How to video to make the perfect coffee</a></li>
+			</ul>
+		</nav>
+	</header>
+    <main>
+		 <header><h3 class="slogan">You drink our coffee, we make large bucks!</h3></header>
+        <h3>A Java Script example by Bisma Baig</h3>
+		<div = id="mydiv"></div>
+		 
+					<ul>
+						<li>The name of the coffee </li>
+						<li>A picture of the coffee, including alt attribute.</li>
+						<li>A color associate with the coffee</li>
+						<li>A description of the coffee</li>
+
+					
+					</ul>
+				</p>
+
+				<h3>Click below to view coffee specials for other days of the week.</h3>
+				<p><a href="?day=0">Sunday</a></p>
+				<p><a href="?day=1">Monday</a></p>
+				<p><a href="?day=2">Tuesday</a></p>
+				<p><a href="?day=3">Wednesday</a></p>
+				<p><a href="?day=4">Thursday</a></p>
+				<p><a href="?day=5">Friday</a></p>
+				<p><a href="?day=6">Saturday</a></p>
+
+				
+				
+
+
+		</main>
+    <footer>
+      <small>&copy; 2014-2015, All Rights Reserved ~
+      <a href="http://validator.w3.org/check/referer" target="_blank">Valid HTML</a> ~
+      <a href="http://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
+      </small>
+    </footer>
+    <!-- END Footer -->
+	<script>
+
+		function coffeeTemplate(coffee){
+			let myReturn = `<p>
+			<img src="${coffee.pic}" alt=${coffee.alt}" id="coffee" />
+            <strong>${coffee.day}'s Coffee Special:</strong> ${coffee.day}'s
+			daily coffee special is <strong class="feature">${coffee.name}</strong>, ${coffee.desc}!</p>
+			<p>Use HTML/CSS & JavaScript to create a single page
+				that rotates unique colors and content for each weekday (Sunday to
+				Saturday) into the page.  The content must include:</p>`;
+
+			return myReturn;
+		}
+
+		let coffee = "";
+
+		let myDate = new Date();
+
+		let today = myDate.getDay();
+
+
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+
+		if(urlParams.has('day')){
+			today = urlParams.get('day');
+			today =  parseInt(today);
+		}
+		console.log(today);
+		
+		//today = 6;
+
+
+		switch(today){
+
+			case 1:
+				coffee = {
+					name:"Mocha",
+					pic:"images/mocha.jpg",
+					alt:"Mocha Coffee",
+					color:"tan",
+					day:"Monday",
+					desc:`You mocha me crazy!` 
+				};	
+			break;
+
+
+			case 2:
+				coffee = {
+					name:"Drip",
+					pic:"images/drip.jpg",
+					alt:"Drip Coffee",
+					color:"brown",
+					day:"Tuesday",
+					desc:`I just need the drip!` 
+				};	
+			break;
+
+			
+			case 3:
+				coffee = {
+					name:"Bubble tea",
+					pic:"images/bubble-tea.jpg",
+					alt:"bubble tea",
+					color:"purple",
+					day:"Wednesday",
+					desc:`You make me feel all bubbly inside!` 
+				};	
+			break;
+
+			
+			case 4:
+				coffee = {
+					name:"Pumpkin Spice Latte",
+					pic:"images/pumpkin-spice-latte.jpg",
+					alt:"Pumpkin Spice Latte",
+					color:"coral",
+					day:"Thursday",
+					desc:`Pumpkin spice is generic` 
+				};	
+			break;
+
+
+			
+			case 5:
+				coffee = {
+					name:"Caramel Latte",
+					pic:"images/caramel-latte.jpg",
+					alt:"caramel latte",
+					color:"golden rod",
+					day:"Friday",
+					desc:`Carma: What goes around, comes around!` 
+				};	
+			break;
+
+
+
+			case 6:
+				coffee = {
+					name:"Frappaccino",
+					pic:"images/frappaccino.jpg",
+					alt:"frappaccino",
+					color:"chocolate",
+					day:"Saturday",
+					desc:`Frappe Saturday!` 
+				};	
+			break;
+
+
+
+			case 0:
+				coffee = {
+					name:"cold brew",
+					pic:"images/cold-brew.jpg",
+					alt:"cold brew",
+					color:"maroon",
+					day:"Sunday",
+					desc:`You Are Brewtiful!` 
+				};	
+			break;
+
+
+
+		}
+
+		document.getElementById('mydiv').innerHTML = coffeeTemplate(coffee);
+		document.querySelector('.feature').style.color = coffee.color;
+		document.querySelector('html').style.backgroundColor = coffee.color;
+
+ 
+    </script>
+	
+</body>
+</html>
